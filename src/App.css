@@ -1,13 +1,20 @@
 
+
+
+
 .header{
-    background-color: red;
+    background-color: #CE2829;
     text-align: center;
     color:white;
     margin-left: 20px; 
     margin-right: 10px;
 }
+.header img{
+    margin-top: 1rem;
+}
 .navigation{
     padding-bottom: 2%;
+    margin-top: 3rem;
     text-align: center;
     
 }
@@ -27,3 +34,13 @@ a{
   justify-content: left;
 
 }
+.radio-label {
+    display: block;          /* Her bir label'ı blok seviyesinde yaparak alt alta sıralanmasını sağlar */
+    margin-bottom: 10px;     /* Label'lar arasına boşluk ekler */
+  }
+.button-select{
+  display: flex;               
+  justify-content: space-between; 
+  gap: 20px;   
+}
+
