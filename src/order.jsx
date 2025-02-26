@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Order = () => {
@@ -65,7 +65,7 @@ const Order = () => {
   };
 
   return (
-    <Router> {/* BrowserRouter (Router) en üst seviyeye yerleştirildi */}
+    
       <div>
         <header className='header'>
           <img src="../images/iteration-1-images/logo.svg" alt="" />
@@ -127,7 +127,7 @@ const Order = () => {
           {message && <p style={{ color: 'red' }}>{message}</p>}
         </div>
       </div>
-    </Router>
+    
   );
 }
 
