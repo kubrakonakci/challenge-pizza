@@ -6,10 +6,20 @@ const Home = () => {
   return (
     
     
-  <div className="home-container"> {/* Home bileşenini bir kapsayıcı div içine al */}
-    <h1>Welcome to the Home Page!</h1>
-    <Link to="/order">Create Order</Link>
-  </div>
+    <div className="background-container">
+    
+      <img className="img-logo" src="../images/iteration-1-images/logo.svg" alt="" />
+      
+      <h4 >Fırsatı Kaçırma</h4>
+      <h1>KOD ACIKTIRIR</h1>  
+      <h1>PIZZA, DOYURUR</h1>   
+      <button className='button'>
+      <Link to="/order">Acıktım</Link>
+      </button>
+    
+      
+    </div>
+    
     
     
   );  

@@ -30,6 +30,8 @@ const Order = () => {
   const [secim, setSecim] = useState('');//radiobutton
   const [message, setMessage] = useState('');//pizza malzemeleri
   const [hamur, setHamur] = useState('');
+  const [orderNote, setOrderNote] = useState('');
+  const [pizzaCount, setPizzaCount] = useState(1);
 
   // Checkbox durumunu değiştiren fonksiyon
   const handleCheckboxChange = (event) => {
@@ -64,19 +66,38 @@ const Order = () => {
     setHamur(event.target.value);  // Seçilen değeri state'e kaydet
   };
 
+   const handleText = (event) => {
+      setOrderNote(event.target.value);
+    };
+
+
+    const increasePizza = () => {
+        setPizzaCount(pizzaCount + 1);
+      };
+    
+      // Eksi butonuna tıklanınca pizza sayısını azaltan fonksiyon
+      const decreasePizza = () => {
+        if (pizzaCount > 1) {  // Pizza sayısı 1'den küçük olmasın diye kontrol ekledik
+          setPizzaCount(pizzaCount - 1);
+        }
+      };
+
+  
   return (
     
       <div>
         <header className='header'>
           <img src="../images/iteration-1-images/logo.svg" alt="" />
           <nav className='navigation'>
-            <Link to="/">Go to Home</Link> {/* Home'a yönlendiren link */}
+            <Link to="/home">Anasayfa-</Link>
+            <Link to="">Seçenekler-</Link>
+            <Link to="/order">Sipariş Oluştur</Link> {/* Home'a yönlendiren link */}
           </nav>
         </header>
 
         <div className='center'>
           <h3>Position Absolute Acı Pizza</h3>
-          <h2>85.50TL</h2>
+          <h2>85.50₺</h2>
           <p>Frontend developer olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre.</p>
 
           <div className='button-select'>
@@ -110,7 +131,7 @@ const Order = () => {
           </div>
 
           <h3>Ek Malzemeler</h3>
-          <p>En fazla on malzeme seçebilirsiniz. 5TL</p>
+          <p>En fazla on malzeme seçebilirsiniz. 5₺</p>
           <form className='form'>
             {toppingsList.map((topping) => (
               <label key={topping.name}>
@@ -125,8 +146,47 @@ const Order = () => {
             ))}
           </form>
           {message && <p style={{ color: 'red' }}>{message}</p>}
+          <form>
+        {/* Sipariş notu alanı */}
+        <label className="not" htmlFor="orderNote">Sipariş Notu:</label>
+        <textarea className='textarea'
+          id="orderNote"
+          value={orderNote}
+          onChange={handleChange}
+          placeholder="Siparişine eklemek istediğin bir not var mı?"
+          rows="2" // textarea'nın yüksekliği
+          cols="60" // textarea'nın genişliği
+        />
+        </form> 
+
+        <div className="order-container">
+      
+          <div className="counter-container">
+           <button onClick={decreasePizza} className="button">-</button>
+           <span className="pizza-count">{pizzaCount}</span>
+           <button onClick={increasePizza} className="button">+</button>
+
+        
+           <div className="text-box">
+            <h5>Sipariş Toplamı</h5>
+            <p>Seçimler    25.00₺</p>
+            <p>Toplam      110.00₺</p>
+            <button className='button'>Sipariş Ver</button>
+          </div>
         </div>
-      </div>
+
+      
+      
+    </div>
+
+      
+     
+    </div>
+    </div>
+       
+        
+
+    
     
   );
 }
