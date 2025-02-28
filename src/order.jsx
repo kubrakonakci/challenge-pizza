@@ -33,6 +33,8 @@ const Order = () => {
   const [orderNote, setOrderNote] = useState('');
   const [pizzaCount, setPizzaCount] = useState(1);
 
+  
+
   // Checkbox durumunu değiştiren fonksiyon
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
@@ -82,6 +84,8 @@ const Order = () => {
         }
       };
 
+      
+
   
   return (
     
@@ -90,7 +94,7 @@ const Order = () => {
           <img src="../images/iteration-1-images/logo.svg" alt="" />
           <nav className='navigation'>
             <Link to="/home">Anasayfa-</Link>
-            <Link to="">Seçenekler-</Link>
+            <Link to="/">Seçenekler-</Link>
             <Link to="/order">Sipariş Oluştur</Link> {/* Home'a yönlendiren link */}
           </nav>
         </header>
@@ -159,9 +163,9 @@ const Order = () => {
         />
         </form> 
 
-        <div className="order-container">
+        <div className="order-container">  
       
-          <div className="counter-container">
+          <div className="counter-container">                                   
            <button onClick={decreasePizza} className="button">-</button>
            <span className="pizza-count">{pizzaCount}</span>
            <button onClick={increasePizza} className="button">+</button>
@@ -171,7 +175,9 @@ const Order = () => {
             <h5>Sipariş Toplamı</h5>
             <p>Seçimler    25.00₺</p>
             <p>Toplam      110.00₺</p>
-            <button className='button'>Sipariş Ver</button>
+            <button className='button'>
+              <Link to="/success">Sipariş Ver</Link> {/* Butona tıklanınca /success sayfasına yönlendirme */}
+            </button>
           </div>
         </div>
 
